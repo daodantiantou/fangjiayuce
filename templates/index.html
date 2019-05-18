@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    form{
+        width: 500px;
+        height: auto;
+        margin: 50px auto 0;
+        border: 3px solid black;
+        padding: 10px;
+        border-radius: 10px;
+    }
+</style>
+<body>
+<form action="/" method="post">
+    <label for="">请选择地区</label>
+    <select name="dist" id="" class="form-control">
+        <option value="0">朝阳</option>
+        <option value="1">东城</option>
+        <option value="2">丰台</option>
+        <option value="3">海淀</option>
+        <option value="4">西城</option>
+        <option value="-1">石景山</option>
+    </select>
+    <label for="">请选择楼层范围</label>
+    <select name="floor" class="form-control">
+        <option value="-1">高层</option>
+        <option value="5">中层</option>
+        <option value="6">底层</option>
+    </select>
+    <label for="">请选择卧室数量</label>
+    <select name="roomnum" class="form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <label for="">请选择客厅数量</label>
+    <select name="halls" class="form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <label for="">请输入面积</label>
+    <input type="text" class="form-control" name="area">
+    <label for="">是否靠近地铁</label><br>
+    <label for="subway1">是</label>
+    <input type="radio" id="subway1" name="subway"  value="1" checked>
+    <label for="subway2">否</label>
+    <input type="radio" id="subway2" name="subway"  value="0">
+    <br><label for="">是否靠近学校</label><br>
+    <label for="school1">是</label>
+    <input type="radio" id="school1" name="school"  value="1" checked>
+    <label for="subway2">否</label>
+    <input type="radio" id="school2" name="school"  value="0"><br>
+    <button type="submit" class="btn btn-primary">提交</button>
+</form>
+</body>
+</html>
