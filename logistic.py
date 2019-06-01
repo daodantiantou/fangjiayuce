@@ -8,7 +8,7 @@ data4=pd.concat([data3,data1.drop(['User ID','Gender'],axis=1)],axis=1)
 x=data4.iloc[:,:-1]
 y=data4.iloc[:,-1:]
 # y=data4[['Purchased']]
-print(y)
+# print(y)
 from sklearn import linear_model
 model2=linear_model.LogisticRegression(max_iter=100000,tol=0.00001,solver='liblinear').fit(x,y)
 res=model2.predict([[1,18,100]])
