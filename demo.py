@@ -6,7 +6,6 @@ data2=pd.get_dummies(data1[['dist','floor']])
 pd.set_option('display.max_columns',None)
 data3=data2.drop(['dist_shijingshan','floor_high'],axis=1)
 data4=pd.concat([data3,data1[['roomnum','halls','AREA','subway','school','price']]],axis=1)
-print(data4)
 x=data4.iloc[:,:-1]
 y=data4.iloc[:,-1:]
 from sklearn import linear_model
