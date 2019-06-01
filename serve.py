@@ -24,7 +24,7 @@ data3=data2.drop('Female',axis=1)
 data4=pd.concat([data3,data1.drop(['User ID','Gender'],axis=1)],axis=1)
 # print(data4)
 x=data4.iloc[:,:-1]
-y=data4.iloc[:,-1:]
+y=data4['Purchased']
 # y=data4[['Purchased']]
 # print(y)
 from sklearn import linear_model
@@ -39,41 +39,41 @@ def chacklogin():
     age=int(request.form['age'])
     salary=int(request.form['salary'])
     res=model2.predict([[sex,age,salary]])
-    print(res)
-    return redirect('/')
+    res=res[0]
+    if res==1:
+        return render_template('guanggao.html')
+    else:
+        return render_template('index.html')
 
-# @app.route('/',methods=['GET'])
-# def index():
-#     return render_template('index.html')
-#
-# @app.route('/',methods=['POST'])
-# def form():
-#     arr=[0,0,0,0,0,0,0,0,0,0,0,0]
-#     dist=request.form['dist']
-#     if dist==-1:
-#         pass
-#     else:
-#         arr[int(dist)]=1
-#     floor = request.form['floor']
-#     if floor==-1:
-#         pass
-#     else:
-#         arr[int(floor)]=1
-#     roomnum = request.form['roomnum']
-#     arr[7]=int(roomnum)
-#     halls = request.form['halls']
-#     arr[8] = int(halls)
-#     area = request.form['area']
-#     if area:
-#         arr[9] = int(area)
-#     else:
-#         area[9]=int(0)
-#     subway = request.form['subway']
-#     arr[10] = int(subway)
-#     school = request.form['school']
-#     arr[11] = int(school)
-#     res=model.predict([arr])[0][0]
-#     res=round(res,2)
-#     return render_template('index.html',data={'res':res})
+
+@app.route('/guanggao',methods=['POST'])
+def form():
+    arr=[0,0,0,0,0,0,0,0,0,0,0,0]
+    dist=request.form['dist']
+    if dist==-1:
+        pass
+    else:
+        arr[int(dist)]=1
+    floor = request.form['floor']
+    if floor==-1:
+        pass
+    else:
+        arr[int(floor)]=1
+    roomnum = request.form['roomnum']
+    arr[7]=int(roomnum)
+    halls = request.form['halls']
+    arr[8] = int(halls)
+    area = request.form['area']
+    if area:
+        arr[9] = int(area)
+    else:
+        area[9]=int(0)
+    subway = request.form['subway']
+    arr[10] = int(subway)
+    school = request.form['school']
+    arr[11] = int(school)
+    res=model.predict([arr])[0][0]
+    res=round(res,2)
+    return render_template('guanggao.html',data={'res':res})
 
 app.run()
